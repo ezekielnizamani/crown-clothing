@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   authSignInWithUserWithEmailAndPassword,
   createUserDocumentAuth,
@@ -23,20 +23,21 @@ const SignInForm = () => {
       setFormFields(formDefualtFields);
     };
     try {
-      const response = await authSignInWithUserWithEmailAndPassword(email, password);
-      console.log(response);
+      await authSignInWithUserWithEmailAndPassword(email, password);
+      // setCurrentUser(user);
+      // console.log(currentUser);
       resetForm();
     } catch (error) {
-      switch(error.code){
+      switch (error.code) {
         case "auth/wrong-password":
-        alert("incorrect password");
-        break
+          alert("incorrect password");
+          break;
         case "auth/user-not-found":
-        alert("User dosn't exist ");
-        break
+          alert("User dosn't exist ");
+          break;
 
         default:
-        console.log(error);
+          console.log(error);
       }
     }
   };
@@ -79,12 +80,12 @@ const SignInForm = () => {
         <div className="buttons-container">
           <Button type="submit"> Sign In</Button>
 
-
-          <Button buttonType="google" type="button" click={loginWithGoolge}> google sign in</Button>
-         
+          <Button buttonType="google" type="button" click={loginWithGoolge}>
+            {" "}
+            google sign in
+          </Button>
         </div>
       </form>
-      
     </div>
   );
 };
