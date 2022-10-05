@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import {
   authSignInWithUserWithEmailAndPassword,
   createUserDocumentAuth,
@@ -6,7 +6,11 @@ import {
 } from "../../utils/firebase/firebase";
 import FormInput from "../FormInput/FormInput";
 import Button from "../button/Button";
-import "./SignInForm.scss";
+import {
+  SignInFormContainer,
+  H2,
+  ButtonsContainer,
+} from "./SignInForm.styles.jsx";
 const formDefualtFields = {
   email: "",
   password: "",
@@ -52,8 +56,8 @@ const SignInForm = () => {
     createUserDocumentAuth(user);
   };
   return (
-    <div className="sign-up-form-container">
-      <h2>already have an account?</h2>
+    <SignInFormContainer>
+      <H2>already have an account?</H2>
       <span>Sign in with email and password</span>
       <form onSubmit={onSubmitHandler}>
         <FormInput
@@ -77,16 +81,16 @@ const SignInForm = () => {
           }}
         />
 
-        <div className="buttons-container">
+        <ButtonsContainer>
           <Button type="submit"> Sign In</Button>
 
           <Button buttonType="google" type="button" click={loginWithGoolge}>
             {" "}
             google sign in
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInFormContainer>
   );
 };
 

@@ -1,15 +1,14 @@
-import CategoryItem from "../category-item/Category-Item-component"
-import "./categories.styles.scss";
+import CategoryItem from "../category-item/Category-Item-component";
+import { CategoriesContainer } from "./Categories.styles";
 
-
-function Catergories({categories}) {
+function Catergories({ categories }) {
   return (
-    <div className="categories-container">
+    <CategoriesContainer>
       {categories.map((category) => (
         <CategoryItem key={category.id} category={category} />
       ))}
-    </div>
-    )
+    </CategoriesContainer>
+  );
 }
 
-export default Catergories
+export default Catergories;
