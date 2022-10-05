@@ -2,17 +2,17 @@ import React from "react";
 import SignUpForm from "../../components/signUp-Form/SignUpForm";
 
 import SignInForm from "../../components/signInForm/SignInForm";
-import './Authentication.scss'
+import {AuthenticationContainer} from './Authentication.styles.jsx'
+
 
 const Authentication = () => {
  
-  //       <button onClick={logGoogleUser}>SignIn</button>
 
   return (
-    <div className="authentication">
+    <AuthenticationContainer>
       <SignInForm/>
       <SignUpForm />
-    </div>
+    </AuthenticationContainer>
   );
 };
 

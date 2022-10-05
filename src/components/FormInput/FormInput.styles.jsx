@@ -1,12 +1,30 @@
-import styled from "styled-components";
+import styled ,{css} from "styled-components";
 
 const subColor = "grey";
 const mainColor = "black";
+const shirnkLabelStyle = css`
+  top: -14px;
+  font-size: 12px;
+  color: ${mainColor};
+`;
 
 export const Group = styled.div`
   position: relative;
   margin: 45px 0;
 `;
+
+export const InputLabel = styled.label`
+  color: ${subColor};
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+  ${props => props.shrink && shirnkLabelStyle}
+`;
+
 export const Input = styled.input`
   background: none;
   background-color: white;
@@ -22,24 +40,7 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
-  &:focus ~ .form-input-label {
-    top: -14px;
-    font-size: 12px;
-    color: ${mainColor};
-  }
-`;
-export const InputLabel = styled.label`
-  color: ${subColor};
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 300ms ease all;
-  &.shrink{
-    top: -14px;
-    font-size: 12px;
-    color: ${mainColor};
+  &:focus ~ ${InputLabel} {
+    ${shirnkLabelStyle}
   }
 `;
