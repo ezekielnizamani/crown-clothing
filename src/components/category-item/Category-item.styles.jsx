@@ -24,7 +24,6 @@ export const Paragraph = styled.p`
 `;
 export const BackgroundImage = styled.div`
   background-image: url(${(props) => props.image});
-  background-color: red;
   width: 100%;
   height: 100%;
   background-size: cover;
