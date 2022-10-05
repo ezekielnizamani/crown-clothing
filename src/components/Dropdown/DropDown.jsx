@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import {
   CartDropDownContainer,
   CartItems,
-  LinkButton,
+  EmptyMessage
 } from "./DropDown.styles.jsx";
 
 const DropDown = () => {
@@ -14,13 +14,15 @@ const DropDown = () => {
   return (
     <CartDropDownContainer>
       <CartItems>
-        {cartItems.map((cartItem) => (
+
+     {cartItems.length ?  cartItems.map((cartItem) => (
           <CartItem key={cartItem.id} cartItem={cartItem} />
-        ))}
+        )) : <EmptyMessage>Cart is empty</EmptyMessage>  
+      }
       </CartItems>
-      <LinkButton to="checkout">
+      <Link to="checkout">
         <Button>To checkout</Button>
-      </LinkButton>
+      </Link>
     </CartDropDownContainer>
   );
 };
