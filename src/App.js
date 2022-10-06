@@ -4,12 +4,14 @@ import Navigation from "./routes/navigation/Navigation";
 import Authentication from "./routes/authentication/./Authentication";
 import Shop from "./routes/shopRoute/Shop";
 import CheckOut from "./routes/checkout/CheckOut";
+import Admin from './routes/Admin/Admin'
 const App = () => {
   return (
     <Routes>
       <Route path="/" element=<Navigation/>>
         
         <Route path="/" element=<Home /> />
+        <Route path="/admin" element=<Admin /> />
         <Route path="/shop/*" element=<Shop /> />
         <Route path="/signIn" element=<Authentication /> />
         <Route path="/checkout" element=<CheckOut /> />
